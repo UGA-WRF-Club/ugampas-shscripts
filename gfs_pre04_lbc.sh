@@ -1,7 +1,6 @@
 #!/bin/bash
-#
+# 
 MPAS_DIR="$HOME/mpas/uga_mpas"
-# NOT THE MODEL SOURCE DIRECTORY!
 
 NAMELIST_TEMPLATE_DIR="$MPAS_DIR/templates/namelist"
 STREAMS_TEMPLATE_DIR="$MPAS_DIR/templates/streams"
@@ -21,7 +20,7 @@ cp "$NAMELIST_TEMPLATE_DIR/namelist.init_atmosphere_02lbc" ./namelist.init_atmos
 cp "$STREAMS_TEMPLATE_DIR/streams.init_atmosphere_02lbc" ./streams.init_atmosphere
 echo "namelist and streams files are now configured for LBC generation"
 
-echo "Updating start and stop times in the namelist..."
+echo "updating start and stop times in the namelist..."
 gfs_files=($(ls -1 ./"$GFS_PREFIX":* | sort -V))
 if [ ${#gfs_files[@]} -eq 0 ]; then
     echo "error: could not find any GFS files in the run directory to determine start/stop times."

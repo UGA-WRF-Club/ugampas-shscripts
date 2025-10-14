@@ -3,12 +3,12 @@
 set -e
 
 cd /home/mpas_uga/mpas/MPAS_Files/SCRIPTS
-echo "running prepoc parent script"
+echo "(fullrun.sh) Running prepoc parent script"
 ./gfs_pre00_init_atmosphere.sh
-echo "preprocessing finished at $(date +"%Y-%m-%d %r")."
+echo "(fullrun.sh) preprocessing finished at $(date +"%Y-%m-%d %r")."
 
-echo "running model..."
+echo "(fullrun.sh) running model..."
 ./gfs_run_mpas.sh
 
-echo "all done! (hopefully)"
-echo "model finished at $(date +"%Y-%m-%d %r")."
+echo "(fullrun.sh) all done! (hopefully)"
+echo "(fullrun.sh) model finished at $(date +"%Y-%m-%d %r")."

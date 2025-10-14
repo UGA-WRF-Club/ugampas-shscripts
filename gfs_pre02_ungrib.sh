@@ -12,7 +12,7 @@ MET_OUTPUT_DIR="$HOME/mpas/MPAS_Files/MET_DATA/GFS"
 echo "starting ungrib process for GFS data..."
 
 echo "changing to WPS directory: $WPS_DIR"
-cd "$WPS_DIR" || { echo "error: could not change to WPS directory. exiting."; exit 1; }
+cd "$WPS_DIR" || { echo "error: Could not change to WPS directory. Exiting."; exit 1; }
 
 echo "updating namelist.wps..."
 hour_utc=$(date -u +"%H")

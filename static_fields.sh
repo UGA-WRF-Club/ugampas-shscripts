@@ -1,5 +1,5 @@
 #!/bin/bash
-# Used to generate static fields on a new mesh.
+# Written by Scout Carlson. Used to generate static fields on a new mesh.
 MPAS_DIR="$HOME/mpas/uga_mpas"
 # NOT THE MODEL SOURCE DIRECTORY!
 
@@ -11,8 +11,6 @@ STREAMS_TEMPLATE_DIR="$MPAS_DIR/templates/streams"
 MESH_NAME="AthensScaled.grid.nc"
 # --- End Configuration ---
 
-
-# --- Main Script ---
 echo "starting MPAS init_atmosphere static fields"
 
 cd "$MPAS_DIR" || { echo "error: could not change to MPAS directory: $MPAS_DIR. Exiting."; exit 1; }
@@ -29,7 +27,7 @@ sed -i "s/AthensVarNew/${MESH_NAME%.grid.nc}/g" streams.init_atmosphere
 echo "Namelist updated with start time: $new_start_time"
 
 echo "cleaning up old logs and output files..."
-rm -f AthensVar.static.nc log.init_atmosphere.*
+rm -f AthensScaled.static.nc log.init_atmosphere.*
 
 echo -e "running init_atmosphere_model with 60 cores."
 mpiexec -np 60 ./init_atmosphere_model >& log.init_atmosphere.0000.out
